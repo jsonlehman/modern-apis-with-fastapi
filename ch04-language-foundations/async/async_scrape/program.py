@@ -54,10 +54,7 @@ async def get_title_range_old_version():
 async def get_title_range():
     # Please keep this range pretty small to not DDoS my site. ;)
 
-    tasks = []
-    for n in range(270, 280):
-        tasks.append((n, loop.create_task(get_html(n))))
-
+    tasks = [(n, loop.create_task(get_html(n))) for n in range(270, 280)]
     for n, t in tasks:
         html = await t
         title = get_title(html, n)

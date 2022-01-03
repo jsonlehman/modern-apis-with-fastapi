@@ -9,10 +9,7 @@ running_max: Optional[int] = None
 def counter(items: Iterable[Item]) -> int:
     global running_max
 
-    total = 0
-
-    for i in items:
-        total += i.value
+    total = sum(i.value for i in items)
 
     if not running_max or total > running_max:
         running_max = total

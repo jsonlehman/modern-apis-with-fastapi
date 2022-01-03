@@ -4,9 +4,8 @@
 
 # WSGI
 def request(environ, start_response):
-    r = start_response(environ)
     # ...
-    return r
+    return start_response(environ)
 
 
 # ASGI
